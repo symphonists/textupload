@@ -1,0 +1,58 @@
+.field-textupload div.frame {
+	background-color: #FAFAF8;
+	border: 1px solid #E4E4DE;
+	margin: -1.5em 0 1.5em;
+	padding: 12px 12px 0;
+}
+
+.field-textupload span.file {
+	background-color: #F5F5F3;
+	display: block;
+	padding: 12px;
+	margin: -12px -12px -1px;
+	border-bottom: 1px solid #E4E4DE;
+}
+
+.field-textupload span.file a {
+	float: none;
+}
+
+.field-textupload textarea {
+	margin: 12px 0;
+}
+
+	.field-textupload textarea.small {
+		height: 5em;
+	}
+	.field-textupload textarea.medium {
+		height: 20em;
+	}
+	.field-textupload textarea.large {
+		height: 35em;
+	}
+	.field-textupload textarea.huge {
+		height: 50em;
+	}
+
+.field-textupload .invalid > div.frame {
+	background-color: #DD4422;
+	border-color: #CC3311;
+	border-style: solid;
+	border-width: 1px 1px 0;
+	margin-bottom: 0;
+}
+	.field-textupload .invalid > div.frame span.file {
+		background-color: #C31;
+	}
+	.field-textupload .invalid > p {
+		padding-top: .75em;
+	}
+	
+.field-textupload .CodeMirror-wrapping {
+	margin: 12px 0;
+}
+
+.field-textupload .CodeMirror-line-numbers {
+	background-color: #FAFAF8 !important;
+	border-right: 1px solid;
+}
