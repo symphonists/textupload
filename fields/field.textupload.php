@@ -598,8 +598,16 @@
 	/*-------------------------------------------------------------------------
 		Output:
 	-------------------------------------------------------------------------*/
+		
+		public function fetchIncludableElements() { 
+			return array(
+				$this->get('element_name') . ': formatted',
+				$this->get('element_name') . ': unformatted',
+				$this->get('element_name') . ': file-only'
+			);
+		}
 
-		public function appendFormattedElement(&$wrapper, $data, $mode = NULL) {
+		public function appendFormattedElement(&$wrapper, $data, $encode = false, $mode = null) {
 		
 			// It is possible an array of NULL data will be passed in. Check for this.
 			if(!is_array($data) || !isset($data['file']) || is_null($data['file'])) {
@@ -608,36 +616,36 @@
 			
 			// If the file's been modified more recently than the entry, update the field data
 			if(filemtime(WORKSPACE . $data['file']) > $data['timestamp']) {
-				
 				$this->updateFromFile($data);
-
 			}
-			
+
 			// Check content options
-			if ($mode == 'unformatted') {
+			if($mode == 'unformatted') {
 				$value = trim($data['value']);
 			}
 			else {
-				$mode = 'formatted';
 				$value = trim($data['value_formatted']);
 			}
 
-			if ($mode == 'unformatted' or $this->get('text_cdata') == 'yes') {
+			if($this->get('text_cdata') == 'yes') {
 				$value = '<![CDATA[' . $value . ']]>';
 			}
-
+			
 			// Main XML element
 			$item = new XMLElement($this->get('element_name'));
+
+			if($mode != 'file-only') {
 			
-			// Textual content
-			$attributes = array(
-				'mode'			=> $mode,
-				'word-count'	=> $data['word_count']
-			);
+				// Textual content
+				$attributes = array(
+					'mode'			=> $mode,
+					'word-count'	=> $data['word_count']
+				);
 			
-			$item->appendChild(new XMLElement(
-				'content', $value, $attributes
-			));
+				$item->appendChild(new XMLElement(
+					'content', $value, $attributes
+				));
+			}
 			
 			// File information
 			$file_element = new XMLElement('file');

@@ -1,7 +1,7 @@
 # Text Upload Field
 
-- Version: 0.1beta
-- 2011-04-16
+- Version: 0.2beta
+- 2011-05-22
 - Requirements: Symphony 2.2 or later
 - Author: Craig Zheng
 
