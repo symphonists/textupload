@@ -5,8 +5,8 @@
 		public function about() {
 			return array(
 				'name' => 'Field: Text Upload',
-				'version' => '0.2',
-				'release-date' => '2011-05-22',
+				'version' => '0.3',
+				'release-date' => '2011-07-12',
 				'author' => array(
 					'name' => 'Craig Zheng',
 					'email' => 'craig@symphony-cms.com'

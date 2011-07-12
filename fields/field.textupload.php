@@ -265,6 +265,18 @@
 			$fieldset->appendChild($div);
 			$wrapper->appendChild($fieldset);
 		}
+		
+		public function checkFields(&$errors, $checkForDuplicates=true){
+			if(!is_dir(DOCROOT . $this->get('file_destination') . '/')){
+				$errors['file_destination'] = __('Directory <code>%s</code> does not exist.', array($this->get('destination')));
+			}
+
+			elseif(!is_writable(DOCROOT . $this->get('file_destination') . '/')){
+				$errors['file_destination'] = __('Destination folder, <code>%s</code>, is not writable. Please check permissions.', array($this->get('file_destination')));
+			}
+
+			Field::checkFields($errors, $checkForDuplicates);
+		}
 
 		public function commit(){
 			if(!Field::commit()) return false;
