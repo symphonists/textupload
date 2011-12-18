@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension id="textupload" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+	<name>Text Upload</name>
+	<description>Upload Field meets Text Box</description>
+	<repo type="github">https://github.com/czheng/textupload</repo>
+	<url type="discuss">http://symphony-cms.com/discuss/thread/71625/</url>
+	<types>
+		<type>Field Types</type>
+	</types>
+	<authors>
+		<author>
+			<name github="czheng" symphony="czheng">craig zheng</name>
+		</author>
+	</authors>
+	<releases>
+		<release version="0.2beta" date="2011-06-14" min="2.2" />
+	</releases>
+</extension>
