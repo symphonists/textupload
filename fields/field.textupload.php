@@ -10,8 +10,8 @@
 		Definition
 	-------------------------------------------------------------------------*/
 
-		public function __construct(&$parent){
-			parent::__construct($parent);
+		public function __construct(){
+			parent::__construct();
 			
 			$this->_name = 'Text Upload';
 			
@@ -294,15 +294,8 @@
 				'text_size'			=> $this->get('text_size'),
 				'text_mode'			=> ($this->get('text_mode') ? $this->get('text_mode') : 'editable'),
 			);
-
-			Symphony::Database()->query(
-				"DELETE FROM
-					`tbl_fields_" . $this->handle(). "`
-				WHERE
-					`field_id` = '$id'
-				LIMIT 1
-			");
-			return Symphony::Database()->insert($fields, 'tbl_fields_' . $this->handle());
+			
+			return FieldManager::saveSettings($id, $fields);
 		}
 
 	/*-------------------------------------------------------------------------
@@ -339,7 +332,7 @@
 			$wrapper->appendChild($label);
 			
 			// Create a frame div
-			$div = new XMLElement('div', NULL, array('class' => 'frame'));
+			$div = new XMLElement('span', NULL, array('class' => 'frame'));
 			$div->setAttribute(
 				'id',
 				'fields' . $fieldnamePrefix . '[' . $this->get('element_name') . ']' . $fieldnamePostfix
@@ -368,8 +361,8 @@
 				if($mode !== 'hidden') {
 					$textarea = Widget::Textarea(
 						'fields' . $fieldnamePrefix . '[' . $this->get('element_name') . ']' . $fieldnamePostfix,
-						'20',
-						'50',
+						20,
+						50,
 						$data['value_formatted']
 					);
 					$textarea->setAttribute('class', 'code ' . $this->get('text_size'));
@@ -497,7 +490,7 @@
 
 		}
 
-		public function processRawFieldData($data, &$status, $simulate=false, $entry_id=NULL) {
+		public function processRawFieldData($data, &$status, &$message=null, $simulate = false, $entry_id = null) {
 
 			$status = self::__OK__;
 

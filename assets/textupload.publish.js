@@ -4,7 +4,7 @@ var TextUpload = {
 		jQuery('<em>' + Symphony.Language.get('Remove File') + '</em>').
 		appendTo('span.file:not(:has(input))').
 		click(function(event) {
-			var div = jQuery(this).parents('div.frame'),
+			var div = jQuery(this).parents('.frame'),
 			name = div.attr('id');
 
 			// Prevent clicktrough

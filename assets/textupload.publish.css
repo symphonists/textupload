@@ -1,8 +1,5 @@
-.field-textupload div.frame {
-	background-color: #FAFAF8;
-	border: 1px solid #E4E4DE;
-	margin: -1.5em 0 1.5em;
-	padding: 12px 12px 0;
+.field-textupload label {
+	margin-bottom: 2px;
 }
 
 .field-textupload span.file {
@@ -18,7 +15,7 @@
 }
 
 .field-textupload textarea {
-	margin: 12px 0;
+	margin: 12px 0 0 0;
 }
 
 	.field-textupload textarea.small {

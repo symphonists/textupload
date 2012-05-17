@@ -1,19 +1,6 @@
 <?php
 
 	Class extension_Textupload extends Extension {
-
-		public function about() {
-			return array(
-				'name' => 'Field: Text Upload',
-				'version' => '0.3',
-				'release-date' => '2011-07-12',
-				'author' => array(
-					'name' => 'Craig Zheng',
-					'email' => 'craig@symphony-cms.com'
-				),
-				'description'	=> 'Upload and parse text.'
-			);
-		}
 		
 		public function getSubscribedDelegates() {
 			return array(
@@ -58,11 +45,11 @@
 		}
 		
 		public function loadFormAssets($context) {	
-			$page = $context['parent']->Page;
-			
+			$page = Administration::instance()->Page;
 			$callback = Administration::instance()->getPageCallback();
 			
 			if ($page instanceof contentPublish and in_array($page->_context['page'], array('new', 'edit'))) {
+				
 				
 				$page->addStylesheetToHead(
 					URL . '/extensions/textupload/assets/textupload.publish.css',
