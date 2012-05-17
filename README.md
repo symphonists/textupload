@@ -1,10 +1,5 @@
 # Text Upload Field
 
-- Version: 0.3beta
-- 2011-07-12
-- Requirements: Symphony 2.2 or later
-- Author: Craig Zheng
-
 ## Summary
 
 Allows you to attach text-based files to entries and have the file content itself saved into the system, making it available for formatting, editing, and output. Syncs changes between the original file and saved content, so you can manage it from either end.
