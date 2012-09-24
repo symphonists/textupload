@@ -696,13 +696,15 @@
 
 		public function updateFromFile($data) {
 			$contents = file_get_contents(WORKSPACE . $data['file']);
+			$file = $data['file'];
 			$data['value'] = $contents;
 			$data['value_formatted'] = $this->applyFormatting($contents);
 			$data['timestamp'] = time();
 		
 			Symphony::Database()->update(
 				$data,
-				'tbl_entries_data_' . $this->get('id')
+				'tbl_entries_data_' . $this->get('id'),
+				"`file` = '{$file}'"
 			);
 		}
 		
